@@ -15,9 +15,20 @@ function divide(numberOne, numberTwo) {
 }
 
 function operate(operator, numberX, numberY) {
-     
 
 }
+
+const firstNumber = document.querySelectorAll("button");
+
+firstNumber.array.forEach((button) => {
+    button.addEventListener("click", ()=> {
+        console.log(button.id);
+    });
+});
+     
+
+ 
+
 
 
 
