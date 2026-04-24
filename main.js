@@ -44,12 +44,12 @@ function multiply(numberOne, numberTwo) {
 function divide(numberOne, numberTwo) {
     console.log(totalSum);
     if(totalSum === null) {
-        let result = Number(numberOne) / Number(numberTwo);
+        let result = Math.round(Number(numberOne) / Number(numberTwo));
         textOutput.textContent = result;
         totalSum = result;
     } else if(totalSum != null) {
         numberOne = totalSum;
-        let result = Number(numberOne) / Number(numberTwo);
+        let result = Math.round(Number(numberOne) / Number(numberTwo));
         totalSum = result;
         textOutput.textContent = result;
     }
@@ -90,10 +90,8 @@ let inputArray = [];
 buttons.forEach((button) => {
     button.addEventListener("click", ()=> {
 
-        textOutput.textContent = button.textContent;
-        
         if(button.textContent != "+" && button.textContent != "-" && button.textContent != "*" && button.textContent != "/" && button.textContent != "x" && button.textContent != "=" && button.textContent != "Clear") {
-           
+            textOutput.textContent += button.textContent;
             inputArray.push(button.textContent);
             console.log(inputArray);
 
