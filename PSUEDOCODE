@@ -1,7 +1,4 @@
-IF OUR TOTALSUM IS EMPTY WE SHOULD ADD OUR TOTAL HERE LETS SAY OUR TOTAL IS 100 
+if you we a number one and number two both with a number and we hit an operator we should evaulator the previous operation
 
-IF ITS NOT NULL THEN WE SHOULD SET OUR FIRST NUMBER TOO TOTAL SO NUMBERONE = 100 
-
-THEN IF THE USER ENTERS IN ANOTHER NUMBER IT SHOULD USE 100 + NUMBERTWO 
 
 

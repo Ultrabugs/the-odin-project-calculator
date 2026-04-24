@@ -42,7 +42,7 @@ function multiply(numberOne, numberTwo) {
 }
 
 function divide(numberOne, numberTwo) {
-     console.log(totalSum);
+    console.log(totalSum);
     if(totalSum === null) {
         let result = Number(numberOne) / Number(numberTwo);
         textOutput.textContent = result;
@@ -106,7 +106,7 @@ buttons.forEach((button) => {
             }
 
             if(numberOne != null & numberTwo != null) {
-                
+                 
                 numberTwo = inputArray.toString().split(",").join("")
                 inputArray = [];
             }
