@@ -97,6 +97,7 @@ buttons.forEach((button) => {
 
         } else if(button.textContent === "+" || button.textContent === "-" || button.textContent === "*" || button.textContent === "/" || button.textContent === "x") {
             operator = button.textContent; 
+            textOutput.textContent = "";
             if(numberOne === null) {
                 numberOne = inputArray.toString().split(",").join("")
                 console.log(`number one ${numberOne}`)
