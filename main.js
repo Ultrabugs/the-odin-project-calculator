@@ -83,23 +83,11 @@ buttons.forEach((button) => {
             operate(firstOperator, numberOne, numberTwo)
             numberTwo = "";
             console.log('result is: ', result);
-            firstOperator = button.textContent;
-            
-        // if numberOne is empty, and if numberTwo
-        }  
-         else if(numberOne != null & result != null & numberTwo === null) {
-            numberOne = result;
-            numberTwo = resultsOutput.textContent;
-            operate(firstOperator, numberOne, numberTwo)
-            numberTwo = "";
-            resultsOutput.textContent = "";
-            console.log('result is: ', result);
+            // firstOperator = button.textContent;
             firstOperator = null;
             
-            
-            
         // if numberOne is empty, and if numberTwo
-        }else if(result != null & numberOne != null & button.textContent === "=") {
+        }  else if(result != null & numberOne != null & button.textContent === "=") {
             numberOne = result;
             numberTwo = resultsOutput.textContent;
             operate(firstOperator, result, numberTwo)
@@ -107,9 +95,16 @@ buttons.forEach((button) => {
             console.log('result is: ', result);
             resultsOutput.textContent = "";
             firstOperator = null;
-        }  
 
-       
+        }  else if(numberOne != null & result != null & numberTwo === null) {
+            numberOne = result;
+            numberTwo = resultsOutput.textContent;
+            operate(firstOperator, numberOne, numberTwo)
+            numberTwo = "";
+            resultsOutput.textContent = "";
+            console.log('result is: ', result);
+            firstOperator = null;
+        }
     } else if(button.textContent === "Clear") {
         numberOne = null;
         numberTwo = null;
