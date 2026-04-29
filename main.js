@@ -77,17 +77,17 @@ buttons.forEach((button) => {
             resultsOutput.textContent = '';
              
         // if number one is not empty and numberTwo is empty add numberTwo
-        } else if(numberOne != null & numberTwo === null & result === null) {
+        } else if(numberOne != null && numberTwo === null && result === null) {
             numberTwo = resultsOutput.textContent
             resultsOutput.textContent = "";
             operate(firstOperator, numberOne, numberTwo)
             numberTwo = "";
             console.log('result is: ', result);
-            // firstOperator = button.textContent;
             firstOperator = null;
+            //firstOperator = null;
             
         // if numberOne is empty, and if numberTwo
-        }  else if(result != null & numberOne != null & button.textContent === "=") {
+        }  else if(result != null && numberOne != null && button.textContent === "=") {
             numberOne = result;
             numberTwo = resultsOutput.textContent;
             operate(firstOperator, result, numberTwo)
@@ -96,7 +96,7 @@ buttons.forEach((button) => {
             resultsOutput.textContent = "";
             firstOperator = null;
 
-        }  else if(numberOne != null & result != null & numberTwo === null) {
+        }  else if(numberOne != null && result != null && numberTwo === null) {
             numberOne = result;
             numberTwo = resultsOutput.textContent;
             operate(firstOperator, numberOne, numberTwo)
@@ -130,7 +130,7 @@ buttons.forEach((button) => {
         firstOperator = null;
         
         
-    } else if(button.textContent === "=" & result != null) {
+    } else if(button.textContent === "=" && result != null) {
         numberOne = result;
         numberTwo = resultsOutput.textContent;
         console.log('numberOne is set to ->:', numberOne)
