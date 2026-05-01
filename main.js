@@ -66,9 +66,6 @@ buttons.forEach((button) => {
 
     if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/"){
        
-        // here we are adding the operator to our string. 100+ etc.  
-        resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent)
-
         // if the operator is null then we should set it to what ever the user pressed.
         if(operator === "") {
             operator = button.textContent;
@@ -81,9 +78,11 @@ buttons.forEach((button) => {
         // here we are checking if numberOne is empty if its empty 
         // We set numberOne equals to our input and storing it. 
         if(numberOne === "") {
-            numberOne = resultsOutput.textContent.replace(button.textContent, "");
+            numberOne = resultsOutput.textContent;
             console.log(numberOne)
-             
+            // here i am adding the operator after adding numberOne.
+            resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent)
+
         } 
         
         // here we are checking if numberOne is not empty. 
@@ -92,7 +91,7 @@ buttons.forEach((button) => {
 
             // here i need to remove previous number and the operators. 
 
-            numberTwo = resultsOutput.textContent.replace(button.textContent, "")
+
             numberTwo = resultsOutput.textContent.replace(numberOne, "")
             numberTwo = resultsOutput.textContent.replace(operator, "")
             resultsOutput.textContent = "";
