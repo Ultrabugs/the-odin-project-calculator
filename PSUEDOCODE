@@ -1,0 +1,32 @@
+code: https://github.com/Ultrabugs/the-odin-project-calculator 
+project: https://www.theodinproject.com/lessons/foundations-calculator
+
+The Problem:
+When you do a calculation like so. 
+1 + 1 = 
+The sum gets evaluated too 2. 
+Then when a user presses + 2 = 
+The sum gets evaluated to 4. 
+
+This is working correctly. This combination works with all operators 
++ - x / 
+Example pressing 1 + 2 = + 2 results in the following
+
+1 + 2 = 2 
+- 2 = 0 
+
+When a user hits clear everything is cleared correctly this is also working correctly. 
+
+ISSUE LIES HERE: 
+User presses 1 + 1 + 1 in that order which evaluates to 3 total.
+Now with 3 in the results, you should see 3 in the top of the UI.
+From here do not press clear.
+
+If the user now presses - 2 nothing happens. 
+
+What i am expecting to happen: When the user presses - 2 the result should evaluate to 1. That does not happen. Then if the user does + 1 after this it should evaluate to 2. 
+
+What did i try: 
+I tried using psuedocode and carefully one by one attempting to fix the issues, then i re-factored my code a ton of times. After this i spent some time researching how to use the debugger better, I was able to determine that the issue lies somewhere in the logic around the operator. But now sure exactly how to solve the problem. 
+
+

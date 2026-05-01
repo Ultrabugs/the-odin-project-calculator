@@ -54,98 +54,62 @@ function operate(operator, numberX, numberY) {
 const resultsOutput = document.querySelector(".calculator-results");
 const buttons = document.querySelectorAll("button");
 const outputResults = document.querySelector(".calculator-output");
+ 
 
-let numberOne = null;
-let numberTwo = null;
-let operator = null;
-let result = null;
-let firstOperator = null;
+let numberOne = "";
+let numberTwo = "";
+let result = "";
+let operator = "";
 
 buttons.forEach((button) => {
-    button.addEventListener("click", ()=> {
+    button.addEventListener("mouseup", ()=> {
 
     if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/"){
-        // operate logic here
-         if(firstOperator === null) {
-            firstOperator = button.textContent;
+       
+        // here we are adding the operator to our string. 100+ etc.  
+        resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent)
+
+        // if the operator is null then we should set it to what ever the user pressed.
+        if(operator === "") {
+            operator = button.textContent;
          }  
         
+        // We are concating the operator to our input 100+ example. 
         console.log('operator is set too: ', operator);
-        // if number one is empty add numberOne and clear it.
-        if(numberOne === null) {
-            numberOne = resultsOutput.textContent;
-            resultsOutput.textContent = '';
+        console.log('numberOne === ', numberOne);
+       
+        // here we are checking if numberOne is empty if its empty 
+        // We set numberOne equals to our input and storing it. 
+        if(numberOne === "") {
+            numberOne = resultsOutput.textContent.replace(button.textContent, "");
+            console.log(numberOne)
              
-        // if number one is not empty and numberTwo is empty add numberTwo
-        } else if(numberOne != null && numberTwo === null && result === null) {
-            numberTwo = resultsOutput.textContent
+        } 
+        
+        // here we are checking if numberOne is not empty. 
+        // if numberOne is not empty we add the input to numberTwo.
+        else if(numberOne != "") {
+
+            // here i need to remove previous number and the operators. 
+
+            numberTwo = resultsOutput.textContent.replace(button.textContent, "")
+            numberTwo = resultsOutput.textContent.replace(numberOne, "")
+            numberTwo = resultsOutput.textContent.replace(operator, "")
             resultsOutput.textContent = "";
-            operate(firstOperator, numberOne, numberTwo)
-            numberTwo = "";
-            console.log('result is: ', result);
-            firstOperator = null;
-            //firstOperator = null;
+            // operate(firstOperator, numberOne, numberTwo)
+            // numberTwo = "";
+            // console.log('result is: ', result);
+            // firstOperator = null;
+           
+        
+        } 
+    } 
+    // if the user doesn't hit an operator + - / * etc. then we just add the numbers they set.
+    else {
             
-        // if numberOne is empty, and if numberTwo
-        }  else if(result != null && numberOne != null && button.textContent === "=") {
-            numberOne = result;
-            numberTwo = resultsOutput.textContent;
-            operate(firstOperator, result, numberTwo)
-            numberTwo = "";
-            console.log('result is: ', result);
-            resultsOutput.textContent = "";
-            firstOperator = null;
-
-        }  else if(numberOne != null && result != null && numberTwo === null) {
-            numberOne = result;
-            numberTwo = resultsOutput.textContent;
-            operate(firstOperator, numberOne, numberTwo)
-            numberTwo = "";
-            resultsOutput.textContent = "";
-            console.log('result is: ', result);
-            firstOperator = null;
+            resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent);
         }
-    } else if(button.textContent === "Clear") {
-        numberOne = null;
-        numberTwo = null;
-        operator = null;
-        totalSum = null;
-        result = null;
-        resultsOutput.textContent = '';
-        outputResults.textContent = '';
-
-    } else if(button.textContent === "=") {
-        // some issue lies here with number
-        if(result != null) {
-            numberOne = result;
-        }
-        console.log('operater is current:', operator);
-        numberTwo = resultsOutput.textContent;
-        console.log('numberOne is set to ->:', numberOne)
-        console.log('numberTwo is set to ->:', numberTwo);
-        console.log('oeprater', operator);
-        operate(firstOperator, result, numberTwo);
-        resultsOutput.textContent = "";
-        numberTwo = "";
-        firstOperator = null;
-        
-        
-    } else if(button.textContent === "=" && result != null) {
-        numberOne = result;
-        numberTwo = resultsOutput.textContent;
-        console.log('numberOne is set to ->:', numberOne)
-        console.log('numberTwo is set to ->:', numberTwo);
-        console.log('oeprater', operator);
-        operate(firstOperator, result, numberTwo);
-        resultsOutput.textContent = "";
-        numberTwo = "";
-        firstOperator = null;
-
-        
-    } else {
-        resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent);
-       }
+    
     });
 });
-
 
