@@ -15,18 +15,28 @@ function add(numberOne, numberTwo) {
 function subtract(numberOne, numberTwo) {
     console.log('adding', numberOne, '- ', numberTwo);
     result = Number(numberOne) - Number(numberTwo);
-    let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+     let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+    // display the results on the top bar UI
     outputResults.textContent = output;
+    // now set numberOne so we can use it again
     numberOne = result;
+
+    // here we should set the display to be results also.
+    resultsOutput.textContent = result;
    
 }
 
 function multiply(numberOne, numberTwo) {
     console.log('adding', numberOne, '* ', numberTwo);
     result = Number(numberOne) * Number(numberTwo);
-    let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+     let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+    // display the results on the top bar UI
     outputResults.textContent = output;
+    // now set numberOne so we can use it again
     numberOne = result;
+
+    // here we should set the display to be results also.
+    resultsOutput.textContent = result;
    
 }
 
@@ -34,8 +44,13 @@ function divide(numberOne, numberTwo) {
    console.log('adding', numberOne, '/ ', numberTwo);
     result = Math.round(Number(numberOne) / Number(numberTwo));
     let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+    // display the results on the top bar UI
     outputResults.textContent = output;
+    // now set numberOne so we can use it again
     numberOne = result;
+
+    // here we should set the display to be results also.
+    resultsOutput.textContent = result;
    
 }
 
@@ -88,9 +103,11 @@ buttons.forEach((button) => {
         if(result != "") {
             // set numberOne equals to our result. 
             numberOne = result; 
-            numberTwo = resultsOutput.textContent;
+            numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "");
             operate(operator, numberOne, numberTwo);
-            resultsOutput.textContent = "";
+            operator = button.textContent;
+
+            resultsOutput.textContent = resultsOutput.textContent.concat(operator);
 
         }
        
@@ -117,6 +134,7 @@ buttons.forEach((button) => {
              
             // We should also set the operator to what the user just set also.
             operator = button.textContent;
+            resultsOutput.textContent = resultsOutput.textContent.concat(operator);
         
         } 
 
@@ -124,9 +142,25 @@ buttons.forEach((button) => {
 
         
     } 
-    // if the user doesn't hit an operator + - / * etc. then we just add the numbers they set.
+    // if the user hits = and numberOne isn't empty. 
+    else if(button.textContent === "=" & numberOne != "") {
+        numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
+        operate(operator, numberOne, numberTwo);
+        numberTwo = "";
+
+    }
+
+    else if(button.textContent === "Clear" || button.textContent === "clear") {
+        // here we clean up everything. 
+        numberOne = "";
+        numberTwo = "";
+        operator = "";
+        result = "";
+        resultsOutput.textContent = "";
+        outputResults.textContent = "";
+    }
     else {
-            
+            // if the user doesn't hit an operator + - / * etc. then we just add the numbers they set.
             resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent);
         }
     
