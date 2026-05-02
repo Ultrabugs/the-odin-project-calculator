@@ -1,56 +1,72 @@
 function add(numberOne, numberTwo) {
-    console.log('adding', numberOne, '+ ', numberTwo);
-    result = Number(numberOne) + Number(numberTwo);
-    let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
-    // display the results on the top bar UI
-    outputResults.textContent = output;
-    // now set numberOne so we can use it again
-    numberOne = result;
+    if(numberTwo != "") {
+        console.log('adding', numberOne, '+ ', numberTwo);
+        result = Number(numberOne) + Number(numberTwo);
+        let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+        // display the results on the top bar UI
+        outputResults.textContent = output;
+        // now set numberOne so we can use it again
+        numberOne = result;
 
-    // here we should set the display to be results also.
-    resultsOutput.textContent = result;
+        // here we should set the display to be results also.
+        resultsOutput.textContent = result;
+
+    }
+    
     
 }
 
 function subtract(numberOne, numberTwo) {
-    console.log('adding', numberOne, '- ', numberTwo);
-    result = Number(numberOne) - Number(numberTwo);
-     let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
-    // display the results on the top bar UI
-    outputResults.textContent = output;
-    // now set numberOne so we can use it again
-    numberOne = result;
+    if(numberTwo != "") {
+        console.log('adding', numberOne, '- ', numberTwo);
+        result = Number(numberOne) - Number(numberTwo);
+        let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+        // display the results on the top bar UI
+        outputResults.textContent = output;
+        // now set numberOne so we can use it again
+        numberOne = result;
 
-    // here we should set the display to be results also.
-    resultsOutput.textContent = result;
+        // here we should set the display to be results also.
+        resultsOutput.textContent = result;
+
+    }
+    
    
 }
 
 function multiply(numberOne, numberTwo) {
-    console.log('adding', numberOne, '* ', numberTwo);
-    result = Number(numberOne) * Number(numberTwo);
-     let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
-    // display the results on the top bar UI
-    outputResults.textContent = output;
-    // now set numberOne so we can use it again
-    numberOne = result;
+    if(numberTwo != "") {
+        console.log('adding', numberOne, '* ', numberTwo);
+        result = Number(numberOne) * Number(numberTwo);
+        let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+        // display the results on the top bar UI
+        outputResults.textContent = output;
+        // now set numberOne so we can use it again
+        numberOne = result;
 
-    // here we should set the display to be results also.
-    resultsOutput.textContent = result;
+        // here we should set the display to be results also.
+        resultsOutput.textContent = result;
+
+    }
+    
    
 }
 
 function divide(numberOne, numberTwo) {
-   console.log('adding', numberOne, '/ ', numberTwo);
-    result = Math.round(Number(numberOne) / Number(numberTwo));
-    let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
-    // display the results on the top bar UI
-    outputResults.textContent = output;
-    // now set numberOne so we can use it again
-    numberOne = result;
+    if(numberTwo != "" ) {
+        console.log('adding', numberOne, '/ ', numberTwo);
+        result = Math.round(Number(numberOne) / Number(numberTwo));
+        let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
+        // display the results on the top bar UI
+        outputResults.textContent = output;
+        // now set numberOne so we can use it again
+        numberOne = result;
 
-    // here we should set the display to be results also.
-    resultsOutput.textContent = result;
+        // here we should set the display to be results also.
+        resultsOutput.textContent = result;
+
+    }
+   
    
 }
 
@@ -100,7 +116,7 @@ buttons.forEach((button) => {
         console.log('numberOne === ', numberOne);
 
         // here we should check if there is a result. 
-        if(result != "") {
+        if(result != "" && resultsOutput.textContent != "" ) {
             // set numberOne equals to our result. 
             numberOne = result; 
             numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "");
@@ -138,9 +154,6 @@ buttons.forEach((button) => {
         
         } 
 
-        
-
-        
     } 
     // if the user hits = and numberOne isn't empty. 
     else if(button.textContent === "=" & numberOne != "") {
