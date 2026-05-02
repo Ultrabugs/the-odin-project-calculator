@@ -157,9 +157,15 @@ buttons.forEach((button) => {
     } 
     // if the user hits = and numberOne isn't empty. 
     else if(button.textContent === "=" & numberOne != "") {
-        numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
-        operate(operator, numberOne, numberTwo);
-        // numberTwo = "";
+        if(numberTwo === "") {
+            numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
+            operate(operator, numberOne, numberTwo);
+        } else {
+            numberOne = result;
+            operate(operator, numberOne, numberTwo)
+            // numberTwo = "";
+        }
+        
 
     }
 
