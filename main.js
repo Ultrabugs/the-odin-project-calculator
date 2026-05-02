@@ -129,7 +129,7 @@ buttons.forEach((button) => {
             // here i need to remove previous number and the operators. 
             numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
             operate(operator, numberOne, numberTwo);
-            numberTwo = "";
+            numberOne = result;
             // After operate we should reset the UI text.
              
             // We should also set the operator to what the user just set also.
@@ -166,4 +166,3 @@ buttons.forEach((button) => {
     
     });
 });
-
