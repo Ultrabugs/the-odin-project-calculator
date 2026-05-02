@@ -146,7 +146,7 @@ buttons.forEach((button) => {
     else if(button.textContent === "=" & numberOne != "") {
         numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
         operate(operator, numberOne, numberTwo);
-        numberTwo = "";
+        // numberTwo = "";
 
     }
 
