@@ -145,9 +145,15 @@ buttons.forEach((button) => {
 
                 resultsOutput.textContent = resultsOutput.textContent.concat(operator);
             }
-            operator = button.textContent;
-
-            resultsOutput.textContent = resultsOutput.textContent.concat(operator);
+            if(operator != "") {
+                resultsOutput.textContent = "";
+                operator = button.textContent;
+                // check if operator already set
+                resultsOutput.textContent = result;
+                resultsOutput.textContent = resultsOutput.textContent.concat(operator);
+                
+            }
+            
             
            
 
