@@ -69,11 +69,8 @@ function divide(numberOne, numberTwo) {
 
         // here we should set the display to be results also.
         resultsOutput.textContent = result;
-
     }
     
-   
-   
 }
 
 function operate(operator, numberX, numberY) { 
@@ -123,11 +120,12 @@ buttons.forEach((button) => {
     if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/"){
        
          
-        // if the operator is null then we should set it to what ever the user pressed.
+        // if the operator is empty then we should set it to what ever the user pressed.
         if(operator === "") {
             operator = button.textContent;
          }  
-        
+         
+         
         // We are concating the operator to our input 100+ example. 
         console.log('operator is set too: ', operator);
         console.log('numberOne === ', numberOne);
@@ -161,13 +159,16 @@ buttons.forEach((button) => {
 
             // here i need to remove previous number and the operators. 
             numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "")
+            if(numberTwo != "") {
             operate(operator, numberOne, numberTwo);
-            numberOne = result;
-            // After operate we should reset the UI text.
-             
-            // We should also set the operator to what the user just set also.
+                        numberOne = result;
+                        // After operate we should reset the UI text.
+                        
+                        // We should also set the operator to what the user just set also.
             operator = button.textContent;
             resultsOutput.textContent = resultsOutput.textContent.concat(operator);
+            }
+            
         
         } 
 
