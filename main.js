@@ -135,10 +135,17 @@ buttons.forEach((button) => {
             // set numberOne equals to our result. 
             numberOne = result; 
             numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "");
-            operate(operator, numberOne, numberTwo);
+            if(numberTwo != "") {
+                operate(operator, numberOne, numberTwo);
+                operator = button.textContent;
+
+                resultsOutput.textContent = resultsOutput.textContent.concat(operator);
+            }
             operator = button.textContent;
 
             resultsOutput.textContent = resultsOutput.textContent.concat(operator);
+            
+           
 
         }
        
@@ -192,6 +199,10 @@ buttons.forEach((button) => {
         // using a function to keep things cleaner.
         clearResults();
     }
+
+    else if(numberOne === "" && numberTwo === "" && button.textContent === "=") {
+            clearResults();
+         }
 
     else {
             // Here we need to check if any output results exists
