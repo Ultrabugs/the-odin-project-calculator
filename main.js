@@ -60,7 +60,8 @@ function divide(numberOne, numberTwo) {
         }
 
         console.log('adding', numberOne, '/ ', numberTwo);
-        result = Math.round(Number(numberOne) / Number(numberTwo));
+        // found on stackoverflow
+        result = Math.round((Number(numberOne) / Number(numberTwo)) * 100) / 100;
         let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
         // display the results on the top bar UI
         outputResults.textContent = output;
@@ -119,7 +120,10 @@ buttons.forEach((button) => {
 
     if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/"){
        
-         
+        // check if results exist if they do clear them.
+        if(outputResults != ""){
+                outputResults.textContent = "";
+        }
         // if the operator is empty then we should set it to what ever the user pressed.
         if(operator === "") {
             operator = button.textContent;
