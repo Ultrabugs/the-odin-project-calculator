@@ -54,6 +54,11 @@ function multiply(numberOne, numberTwo) {
 
 function divide(numberOne, numberTwo) {
     if(numberTwo != "" ) {
+        if(numberTwo === "0") {
+            alert("Lol nice try ;)")
+            clearResults();
+        }
+
         console.log('adding', numberOne, '/ ', numberTwo);
         result = Math.round(Number(numberOne) / Number(numberTwo));
         let output = `${numberOne} ${operator} ${numberTwo} = ${result}`
@@ -66,6 +71,7 @@ function divide(numberOne, numberTwo) {
         resultsOutput.textContent = result;
 
     }
+    
    
    
 }
@@ -90,6 +96,16 @@ function operate(operator, numberX, numberY) {
 
 }
 
+function clearResults() {
+    // here we clean up everything. 
+    numberOne = "";
+    numberTwo = "";
+    operator = "";
+    result = "";
+    resultsOutput.textContent = "";
+    outputResults.textContent = "";
+  
+}
  
 const resultsOutput = document.querySelector(".calculator-results");
 const buttons = document.querySelectorAll("button");
@@ -106,6 +122,7 @@ buttons.forEach((button) => {
 
     if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/"){
        
+         
         // if the operator is null then we should set it to what ever the user pressed.
         if(operator === "") {
             operator = button.textContent;
@@ -162,7 +179,7 @@ buttons.forEach((button) => {
             operate(operator, numberOne, numberTwo);
         } else {
             numberOne = result;
-            numberTwo = resultsOutput.textContent;
+            numberTwo = resultsOutput.textContent.replace(numberOne, "").replace(operator, "");
             operate(operator, numberOne, numberTwo)
             // numberTwo = "";
         }
@@ -171,15 +188,17 @@ buttons.forEach((button) => {
     }
 
     else if(button.textContent === "Clear" || button.textContent === "clear") {
-        // here we clean up everything. 
-        numberOne = "";
-        numberTwo = "";
-        operator = "";
-        result = "";
-        resultsOutput.textContent = "";
-        outputResults.textContent = "";
+        // using a function to keep things cleaner.
+        clearResults();
     }
+
     else {
+            // Here we need to check if any output results exists
+            // if so we should clear it
+            if(outputResults != ""){
+                outputResults.textContent = "";
+            }
+           
             // if the user doesn't hit an operator + - / * etc. then we just add the numbers they set.
             resultsOutput.textContent = resultsOutput.textContent.concat(button.textContent);
         }
